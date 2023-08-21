@@ -1,0 +1,78 @@
+.header {
+    height: 5rem;
+}
+.content {
+    display: flex;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.content-left {
+    width: 19%;
+    margin-right: 1%;
+    height: auto;
+}
+.content-right {
+    width: 79%;
+    margin-left: 1%;
+    height: auto;
+}
+.dogList {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.filter {
+    border-radius: 0.5em;
+    min-height: 100%;
+    padding: 0.5em;
+    box-shadow: 0px 0px 12px rgba(171, 171, 171, 0.6);
+}
+
+/* Card */
+.cardDog {
+    width: 12rem;
+    margin-bottom: 1rem;
+    border-radius: 1em;
+    margin-right: 1rem;
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+.cardDog:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+.cardDog-title {
+    font-size: 12px;
+}
+.cardPic {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+.cardBody {
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+.cardDog-subtitle {
+    font-size: 10px;
+}
+
+/* Card Types */
+.cardBackground_Gold {
+    background: linear-gradient(to bottom left, #ffd700 40%, #ffc39e 100%);
+    box-shadow: 0px 0px 12px rgba(255, 215, 0, 0.6);
+}
+.cardBackground_Silver {
+    background: linear-gradient(to bottom left, #d2d2d2 40%, #e0e0e0 100%);
+    box-shadow: 0px 0px 12px rgba(192, 192, 192, 0.6);
+}
+.cardBackground_Blue {
+    background: linear-gradient(to bottom left, #3db0fc 40%, #85c1e9 100%);
+    box-shadow: 0px 0px 12px rgba(60, 174, 250, 0.6);
+}
+
+/* Text Colors */
+.text_white {
+    color: white;
+}
