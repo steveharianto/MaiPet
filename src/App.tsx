@@ -1,13 +1,14 @@
 import "./App.css";
-import Home from "./Pages/Home";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import PasangIklan from "./pages/PasangIklan";
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/PasangIklan" element={<PasangIklan />} />
                 <Route path="*" element={<h1>PAGE NOT FOUND</h1>} />
             </Routes>
         </Router>
