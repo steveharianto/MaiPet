@@ -1,5 +1,5 @@
-import CardDog from "../Components/CardDog";
-import CategoryDog from "../Components/CategoryDog";
+import CardDog from "../components/CardDog";
+import CategoryDog from "../components/CategoryDog";
 
 export default function Home() {
     return (
@@ -21,7 +21,7 @@ export default function Home() {
                 </div>
                 <div className="content-right">
                     <p>
-                        <b style={{ marginBottom: "0.3rem" }}>Anjing Dijual</b>
+                        <b style={{ marginBottom: "0.3rem" }}>Papan Iklan</b>
                     </p>
                     <div className="dogList">
                         <CardDog dogType={"Pomeranian"} rank={"Gold"} />

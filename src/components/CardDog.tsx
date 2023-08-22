@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 export default function CardDog(props) {
     return (
         <div className={`cardDog cardBackground_${props.rank}`}>
