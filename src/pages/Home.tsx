@@ -1,10 +1,10 @@
 import CardDog from "../components/CardDog";
 import CategoryDog from "../components/CategoryDog";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, Timestamp } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { useEffect, useState } from "react";
-interface AnjingInfo {
-    DOB: string;
+export interface AnjingInfo {
+    DOB: Timestamp | null;
     kelamin: string;
     warna: string;
 }
