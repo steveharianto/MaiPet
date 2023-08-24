@@ -28,8 +28,8 @@
 .filter {
     border-radius: 0.5em;
     min-height: 100%;
-    padding: 0.5em;
     box-shadow: 0px 0px 12px rgba(171, 171, 171, 0.6);
+    cursor: pointer;
 }
 
 /* Card */
@@ -92,6 +92,28 @@
 .cardBackground_Blue {
     background: linear-gradient(to bottom left, #3db0fc 40%, #85c1e9 100%);
     /* box-shadow: 0px 0px 12px rgba(60, 174, 250, 0.6); */
+}
+
+/* Category Dog */
+.CategoryDog {
+    padding-left: 0.5em;
+    transition: transform 0.1s;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+.CategoryDog:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+}
+
+/* Filter List */
+.filterList {
+    display: flex;
+}
+.filterList-object {
+    background-color: blue;
+    margin-right: 0.3em;
+    margin-bottom: 1em;
 }
 
 /* Text Colors */
