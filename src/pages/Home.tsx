@@ -42,21 +42,25 @@ export default function Home() {
         setIklanList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })) as Iklan[]);
     };
 
-    useEffect(() => {
-        getIklan();
-    }, []);
-    if (!iklanList) {
-        return <div>Loading...</div>;
-    }
-    const filteredIklanList =
-        existingFilters.length === 0
-            ? iklanList // Include everything if existingFilters is empty
-            : iklanList.filter((iklan) => existingFilters.includes(iklan.jenis));
+    // useEffect(() => {
+    //     getIklan();
+    // }, []);
+    // if (!iklanList) {
+    //     return <div>Loading...</div>;
+    // }
+    // const filteredIklanList =
+    //     existingFilters.length === 0
+    //         ? iklanList // Include everything if existingFilters is empty
+    //         : iklanList.filter((iklan) => existingFilters.includes(iklan.jenis));
+
     const categories = ["Akita", "Alaskan Malamute", "American Bully", "American Cocker Spaniel", "American Pit Bull Terrier", "Australian Shepherd", "Basenji", "Beagle", "Belgian Malinois", "Bernese Mountain Dog", "Bichon Frise", "Biewer Terrier", "Border Collie", "Bulldog", "Cane Corso", "Cavalier King Charles Spaniel", "Chihuahua", "Chow Chow", "Dalmatian", "Doberman Pinscher", "Dogo Argentino", "Dutch Shepherd", "English Cocker Spaniel", "French Bulldog", "Golden Retriever", "Great Dane", "Greyhound", "Herder / German Shepherd", "Jack Russell Terrier", "Japanese Chin", "Kintamani", "Labrador Retriever", "Maltese", "Miniature Pinscher", "Miniature Schnauzer", "Mixed Breed / Campuran", "Pekingese", "Pembroke Welsh Corgi", "Pomeranian", "Poodle", "Pug", "Rottweiler", "Samoyed", "Shetland Sheepdog", "Shiba Inu", "Shih Tzu", "Siberian Husky", "Tekel / Dachshund", "West Highland White Terrier", "Yorkshire Terrier"];
     const filteredCategories = categories.filter((category) => category.toLowerCase().includes(filterInput.toLowerCase()));
     return (
         <>
             <Header />
+            <div style={{ backgroundColor: "red", height: "20em", marginBottom: "1em" }}>
+                <img src="header-pic.jpg" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }} />
+            </div>
             <div className="content">
                 <div className="content-left">
                     <div className="filter">
@@ -81,9 +85,9 @@ export default function Home() {
                         ))}
                     </div>
                     <div className="dogList">
-                        {filteredIklanList?.map((iklan) => (
+                        {/* {filteredIklanList?.map((iklan) => (
                             <CardDog iklan={iklan} key={iklan.id} />
-                        ))}
+                        ))} */}
                     </div>
                 </div>
             </div>

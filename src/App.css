@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:ital@1&display=swap");
-.header {
-    height: 5rem;
-}
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital@1&family=Passion+One&display=swap");
 .content {
     display: flex;
     width: 95%;
@@ -29,6 +26,36 @@
     border-radius: 0.5em;
     min-height: 100%;
     box-shadow: 0px 0px 12px rgba(171, 171, 171, 0.6);
+    cursor: pointer;
+}
+
+/* Header */
+.header {
+    height: 3.5rem;
+    background-color: #ffffff;
+    display: flex;
+}
+.header-item {
+    background-color: #00bf8f;
+    margin-right: 1em;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 2em;
+    font-family: "Passion One", cursive;
+    padding: 0.3em 0.3em 0 0.6em;
+    border-radius: 34px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.header-item:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+.header-button {
+    display: flex;
+    transition: all 0.1s ease;
+}
+.header-button:hover {
+    background-color: #00bf8f;
     cursor: pointer;
 }
 
@@ -83,13 +110,9 @@
 /* Card Types */
 .cardBackground_Priority {
     background-color: #ffffff;
-    /* background: linear-gradient(to bottom left, #ffd700 40%, #ffc39e 100%); */
-    /* box-shadow: 0px 0px 12px rgba(255, 215, 0, 0.6); */
 }
 .cardBackground_Basic {
     background-color: #ffffff;
-    /* background: linear-gradient(to bottom left, #3db0fc 40%, #85c1e9 100%); */
-    /* box-shadow: 0px 0px 12px rgba(60, 174, 250, 0.6); */
 }
 
 /* Category Dog */
@@ -153,4 +176,9 @@
         opacity: 1;
         transform: scale(1);
     }
+}
+
+.blur {
+    filter: blur(5px); /* Apply blur to the background content */
+    pointer-events: none; /* Allow clicking on the popup */
 }
