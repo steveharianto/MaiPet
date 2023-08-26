@@ -21,7 +21,7 @@ export default function CategoryDog(props: { name: string }) {
         navigate(`/?filterType=${updatedFilterType}`);
     };
     return (
-        <div className="CategoryDog" onClick={redirectToFilter} style={existingFilters.includes(props.name) ? { backgroundColor: "#e0e0e0" } : {}}>
+        <div className="CategoryDog" onClick={redirectToFilter} style={existingFilters.includes(props.name) ? { backgroundColor: "#00bf8f", fontWeight: "bold", color: "white" } : {}}>
             {props.name}
         </div>
     );
