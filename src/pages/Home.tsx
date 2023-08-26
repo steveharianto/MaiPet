@@ -5,6 +5,7 @@ import { db } from "../config/firebase";
 import { SetStateAction, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
+import PasangIklan from "../components/PasangIklan";
 export interface AnjingInfo {
     DOB: Timestamp | null;
     kelamin: string;
@@ -32,6 +33,11 @@ export default function Home() {
     const filterType = queryParams.get("filterType");
     const existingFilters = filterType ? filterType.split(",") : [];
     const [filterInput, setFilterInput] = useState<string>("");
+    const [showPasang, setShowPasang] = useState<boolean>(false);
+
+    const togglePasang = () => {
+        setShowPasang(!showPasang);
+    };
 
     const handleFilterChange = (event: { target: { value: SetStateAction<string> } }) => {
         setFilterInput(event.target.value);
@@ -57,7 +63,7 @@ export default function Home() {
     const filteredCategories = categories.filter((category) => category.toLowerCase().includes(filterInput.toLowerCase()));
     return (
         <>
-            <Header />
+            <Header togglePasang={togglePasang} />
             <div style={{ backgroundColor: "red", height: "20em", marginBottom: "1em" }}>
                 <img src="header-pic.jpg" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }} />
             </div>
@@ -91,6 +97,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            {showPasang && <PasangIklan />}
         </>
     );
 }

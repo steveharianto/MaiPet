@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import PasangIklan from "./pages/PasangIklan";
+import PasangIklan from "./components/PasangIklan";
 
 function App() {
     return (

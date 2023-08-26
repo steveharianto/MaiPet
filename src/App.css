@@ -161,6 +161,22 @@
 .filterList-input:focus-visible {
     border-color: #fdfd97;
 }
+
+.pasangIklan {
+    position: fixed;
+    top: 40%; /* Position it vertically at the center */
+    left: 40%; /* Position it horizontally at the center */
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: popupAnimation 0.1s ease-in-out;
+}
+
 /* Text Colors */
 .text_white {
     color: white;
