@@ -23,6 +23,7 @@ function PasangIklan() {
         vaksin: false,
         rank: "",
         Anjing: [initialAnjingInfo],
+        body: "",
     };
 
     const [iklan, setIklan] = useState(initialIklan);

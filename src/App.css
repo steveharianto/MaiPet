@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:ital@1&family=Passion+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Kanit:ital@1&family=Passion+One&family=Quicksand&display=swap");
 .content {
     display: flex;
     width: 95%;
@@ -34,6 +34,10 @@
     height: 3.5rem;
     background-color: #ffffff;
     display: flex;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    position: sticky;
+    top: 0;
 }
 .header-item {
     background-color: #00bf8f;
@@ -76,6 +80,7 @@
 .cardDog-title {
     font-size: 12px;
     height: 2em;
+    font-family: "Lucida Sans" sans-serif;
 }
 .cardPic {
     border-top-left-radius: 1em;
@@ -87,6 +92,8 @@
 }
 .cardDog-subtitle {
     font-size: 10px;
+    color: #999999;
+    font-family: "Lucida Sans" sans-serif;
 }
 .cardDog-icon {
     display: flex;
@@ -177,6 +184,59 @@
     animation: popupAnimation 0.1s ease-in-out;
 }
 
+/* Info Dog */
+.infoDog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.infoDog-card {
+    background-color: #f6f7fa;
+    width: 600px;
+    min-height: 600px;
+    height: auto;
+    border-radius: 1.5em;
+    margin: 4em auto 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: popupAnimation 0.2s;
+}
+.infoDog-card-1 {
+    margin: 10px 0 10px 0;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+.infoDog-card-2 {
+    height: 200px;
+    display: flex;
+}
+.infoDog-backbutton {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 0.5em 0.5em 0 0;
+    padding: 1em;
+}
+.infoDog-backbutton:hover {
+    cursor: pointer;
+}
+.infoDog-icons {
+    background-color: #c9fde0;
+    color: #00aa5b;
+    border: none;
+    font-weight: bold;
+    margin-right: 0.3em;
+    margin-bottom: 0.3em;
+    font-size: 0.6em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.1em;
+    padding-top: 0.2em;
+    border-radius: 1em;
+}
 /* Text Colors */
 .text_white {
     color: white;
