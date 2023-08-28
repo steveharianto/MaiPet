@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../config/firebase";
 import { Iklan, AnjingInfo } from "../pages/Home";
 import { addDoc, collection } from "firebase/firestore";
@@ -56,6 +56,40 @@ function PasangIklan({ togglePasang }: PasangProps) {
             ],
         }));
     }
+
+    // Progress Points
+    useEffect(() => {
+        const els = document.getElementsByClassName("step");
+        const steps: HTMLElement[] = [];
+
+        Array.prototype.forEach.call(els, (e: HTMLElement) => {
+            steps.push(e);
+            e.addEventListener("click", (event) => {
+                if (event.target instanceof HTMLElement) {
+                    progress(event.target.id);
+                }
+            });
+        });
+
+        function progress(stepNum: string) {
+            const p = parseInt(stepNum, 10) * 33;
+            const percentElement = document.getElementsByClassName("percent")[0] as HTMLElement;
+            percentElement.style.width = `${p}%`;
+
+            steps.forEach((e) => {
+                if (e.id === stepNum) {
+                    e.classList.add("selected");
+                    e.classList.remove("completed");
+                }
+                if (parseInt(e.id, 10) < parseInt(stepNum, 10)) {
+                    e.classList.add("completed");
+                }
+                if (parseInt(e.id, 10) > parseInt(stepNum, 10)) {
+                    e.classList.remove("selected", "completed");
+                }
+            });
+        }
+    }, []);
     return (
         <div className="pasangIklan">
             <div className="pasangIklan-card">
@@ -65,31 +99,24 @@ function PasangIklan({ togglePasang }: PasangProps) {
                     </div>
                 </div>
                 <div style={{ height: "100px", display: "flex" }}>
-                    <ul id="progressbar">
-                        <li className="active">
-                            Order Placed
-                            <p>We have Received your Order</p>
-                        </li>
-                        <li className="active">
-                            Order Confirmed
-                            <p>Your Order is Confirmed</p>
-                        </li>
-                        <li>
-                            Order Processed
-                            <p>We are preparing your Order</p>
-                        </li>
-                        <li>
-                            Ready To Deliver
-                            <p>Your order is ready to deliver</p>
-                        </li>
-                    </ul>
+                    <div className="progressContainer">
+                        <div className="progressbar">
+                            <div className="percent"></div>
+                        </div>
+                        <div className="steps">
+                            <div className="step" id="0"></div>
+                            <div className="step" id="1"></div>
+                            <div className="step" id="2"></div>
+                            <div className="step" id="3"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     );
 
     return (
-        <div>
+        <div className="pasangIklan">
             <h2>Pasang Iklan</h2>
             <form onSubmit={handleSubmit}>
                 <label>
