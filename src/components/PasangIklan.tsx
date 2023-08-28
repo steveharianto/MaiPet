@@ -3,8 +3,10 @@ import { db } from "../config/firebase";
 import { Iklan, AnjingInfo } from "../pages/Home";
 import { addDoc, collection } from "firebase/firestore";
 import { Timestamp } from "firebase/firestore";
-
-function PasangIklan() {
+interface PasangProps {
+    togglePasang: () => void;
+}
+function PasangIklan({ togglePasang }: PasangProps) {
     const initialAnjingInfo: AnjingInfo = {
         DOB: null,
         kelamin: "",
@@ -54,7 +56,37 @@ function PasangIklan() {
             ],
         }));
     }
-    return <div className="pasangIklan">tes</div>;
+    return (
+        <div className="pasangIklan">
+            <div className="pasangIklan-card">
+                <div className="infoDog-card-1">
+                    <div className="infoDog-backbutton" onClick={togglePasang}>
+                        <p style={{ margin: "0" }}>Kembali</p>
+                    </div>
+                </div>
+                <div style={{ height: "100px", display: "flex" }}>
+                    <ul id="progressbar">
+                        <li className="active">
+                            Order Placed
+                            <p>We have Received your Order</p>
+                        </li>
+                        <li className="active">
+                            Order Confirmed
+                            <p>Your Order is Confirmed</p>
+                        </li>
+                        <li>
+                            Order Processed
+                            <p>We are preparing your Order</p>
+                        </li>
+                        <li>
+                            Ready To Deliver
+                            <p>Your order is ready to deliver</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    );
 
     return (
         <div>

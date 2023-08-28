@@ -20,22 +20,10 @@ export default function CardDog(props: Props) {
                     {iklan.lokasi}
                 </p>
                 <div className="cardDog-icon">
-                    {iklan.microchip && (
-                        <div className="cardDog-icons" style={{ color: "#FF5733", backgroundColor: "#FFC983", border: "none" }}>
-                            MICROCHIP
-                        </div>
-                    )}
-                    {iklan.obatCacing && (
-                        <div className="cardDog-icons" style={{ color: "#42A5F5", backgroundColor: "#DAF0F7", border: "none" }}>
-                            OBAT CACING
-                        </div>
-                    )}
-                    {iklan.stambum && <div className="cardDog-icons">STAMBUM</div>}
-                    {iklan.vaksin && (
-                        <div className="cardDog-icons" style={{ color: "#9C27B0", backgroundColor: "#D9C4EC", border: "none" }}>
-                            VAKSIN
-                        </div>
-                    )}
+                    {iklan.microchip && <div className="infoDog-icons-blue">MICROCHIP</div>}
+                    {iklan.obatCacing && <div className="infoDog-icons">OBAT CACING</div>}
+                    {iklan.stambum && <div className="infoDog-icons-blue">STAMBUM</div>}
+                    {iklan.vaksin && <div className="infoDog-icons">VAKSIN</div>}
                 </div>
                 <div className="cardDog-extra"></div>
             </div>

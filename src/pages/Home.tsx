@@ -119,7 +119,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            {showPasang && <PasangIklan />}
+            {showPasang && <PasangIklan togglePasang={togglePasang} />}
             {showAnjing && <InfoDog iklan={currentIklan} hideAnjing={hideAnjing} />}
         </>
     );

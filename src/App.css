@@ -169,21 +169,6 @@
     border-color: #fdfd97;
 }
 
-.pasangIklan {
-    position: fixed;
-    top: 40%; /* Position it vertically at the center */
-    left: 40%; /* Position it horizontally at the center */
-    width: 200px;
-    height: 200px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: popupAnimation 0.1s ease-in-out;
-}
-
 /* Info Dog */
 .infoDog {
     position: fixed;
@@ -193,10 +178,10 @@
     height: 100%;
 }
 .infoDog-card {
-    background-color: #f6f7fa;
+    background-color: #fafefc;
     width: 600px;
-    min-height: 600px;
-    height: auto;
+    height: 600px;
+    /* height: auto; */
     border-radius: 1.5em;
     margin: 4em auto 0 auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -209,7 +194,7 @@
     justify-content: flex-end;
 }
 .infoDog-card-2 {
-    height: 200px;
+    height: 300px;
     display: flex;
 }
 .infoDog-backbutton {
@@ -237,6 +222,39 @@
     padding-top: 0.2em;
     border-radius: 1em;
 }
+.infoDog-icons-blue {
+    background-color: #c9fde0;
+    color: #42a5f5;
+    border: none;
+    font-weight: bold;
+    margin-right: 0.3em;
+    margin-bottom: 0.3em;
+    font-size: 0.6em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.1em;
+    padding-top: 0.2em;
+    border-radius: 1em;
+}
+
+.pasangIklan {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.pasangIklan-card {
+    background-color: #fafefc;
+    width: 600px;
+    height: 600px;
+    /* height: auto; */
+    border-radius: 1.5em;
+    margin: 4em auto 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    animation: popupAnimation 0.2s;
+}
+
 /* Text Colors */
 .text_white {
     color: white;
@@ -257,4 +275,105 @@
 .blur {
     filter: blur(5px); /* Apply blur to the background content */
     pointer-events: none; /* Allow clicking on the popup */
+}
+
+/* Progress Bar */
+#progressbar {
+    margin: 2em 0 30px 0;
+    padding: 0;
+    overflow: hidden;
+    /*counter-reset: step;*/
+}
+#progressbar li {
+    font-family: "Roboto", Helvetica;
+    list-style-type: none;
+    color: #797979;
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+}
+#progressbar li p {
+    font-family: "Roboto", Helvetica;
+    font-size: 11px;
+    font-weight: 500;
+    color: #797979;
+    line-height: 2;
+    padding: 0;
+    margin: 0;
+}
+
+/*     #progressbar li:first-child:before {
+    content: "\f47d";
+}
+#progressbar li:nth-child(2):before {
+    content: "\f443";
+
+}
+#progressbar li:nth-child(3):before {
+    content: "\f47c";
+}
+#progressbar li:last-child:before {
+    content: "\f3a3";
+} */
+#progressbar li:first-child:before {
+    content: " ";
+}
+#progressbar li:nth-child(2):before {
+    content: " ";
+}
+#progressbar li:nth-child(3):before {
+    content: " ";
+}
+#progressbar li:last-child:before {
+    content: " ";
+}
+#progressbar li:before {
+    /*content: counter(step);*/
+    /*counter-increment: step;*/
+    width: 40px;
+    height: 40px;
+    font-family: Ionicons;
+    font-size: 25px;
+    line-height: 40px;
+    border-radius: 50%;
+    border: 2px solid #797979;
+    background-color: white;
+    display: block;
+    margin: 0 auto 5px auto;
+}
+#progressbar li:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #797979;
+    position: absolute;
+    top: 20px;
+    z-index: -1;
+    left: -50%;
+}
+#progressbar li:first-child:after {
+    content: none;
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after,
+#progressbar li.active {
+    border-color: #2db36f;
+    color: #2db36f;
+}
+
+#progressbar li.active + li:after {
+    background-color: #2db36f;
+    content: "";
+}
+
+#progressbar li.active:before {
+    content: "\f3fd";
+    background: #2db36f;
+    color: #fff;
+    font-weight: bold;
 }

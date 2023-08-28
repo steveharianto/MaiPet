@@ -20,7 +20,7 @@ export default function InfoDog(props: Props) {
                         <img src="dogLogo-Pomeranian.png" style={{ height: "90%", width: "90%", objectFit: "cover", borderRadius: "1em" }} alt="" />
                     </div>
                     <div style={{ height: "100%", width: "50%", padding: "1em", fontSize: "0.9em" }}>
-                        <h6>
+                        <h6 style={{ height: "2em", marginBottom: "1em", marginTop: "2em" }}>
                             <b>{iklan.judul}</b>
                         </h6>
                         <p>
@@ -37,27 +37,15 @@ export default function InfoDog(props: Props) {
                             {iklan.kontak}
                         </p>
                         <div style={{ height: "auto", width: "100%", display: "flex" }}>
-                            {iklan.microchip && (
-                                <div className="infoDog-icons" style={{ color: "#FF5733", backgroundColor: "#FFC983", border: "none" }}>
-                                    MICROCHIP
-                                </div>
-                            )}
-                            {iklan.obatCacing && (
-                                <div className="infoDog-icons" style={{ color: "#42A5F5", backgroundColor: "#DAF0F7", border: "none" }}>
-                                    OBAT CACING
-                                </div>
-                            )}
-                            {iklan.stambum && <div className="infoDog-icons">STAMBUM</div>}
-                            {iklan.vaksin && (
-                                <div className="infoDog-icons" style={{ color: "#9C27B0", backgroundColor: "#D9C4EC", border: "none" }}>
-                                    VAKSIN
-                                </div>
-                            )}
+                            {iklan.microchip && <div className="infoDog-icons-blue">MICROCHIP</div>}
+                            {iklan.obatCacing && <div className="infoDog-icons">OBAT CACING</div>}
+                            {iklan.stambum && <div className="infoDog-icons-blue">STAMBUM</div>}
+                            {iklan.vaksin && <div className="infoDog-icons">VAKSIN</div>}
                         </div>
                     </div>
                 </div>
-                <div className="infoDog-card-3">
-                    <p>{iklan.body}</p>
+                <div className="infoDog-card-3" style={{ whiteSpace: "pre-wrap", height: "100%", padding: "0 2em 0 2em", fontSize: "0.8em" }}>
+                    <p>{iklan.body.replace(/\\n/g, "\n")}</p>
                 </div>
             </div>
         </div>
