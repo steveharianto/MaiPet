@@ -25,6 +25,8 @@ export interface Iklan {
     rank: string;
     Anjing: AnjingInfo[];
     body: string;
+    status: string;
+    gambar: string;
 }
 
 export default function Home() {
@@ -37,7 +39,7 @@ export default function Home() {
     const [filterInput, setFilterInput] = useState<string>("");
     const [showPasang, setShowPasang] = useState<boolean>(false);
     const [showAnjing, setShowAnjing] = useState<boolean>(false);
-    const [currentIklan, setCurrentIklan] = useState<Iklan>(null);
+    const [currentIklan, setCurrentIklan] = useState<Iklan | null>(null);
 
     const togglePasang = () => {
         setShowPasang(!showPasang);
@@ -70,10 +72,7 @@ export default function Home() {
     if (!iklanList) {
         return <div>Loading...</div>;
     }
-    const filteredIklanList =
-        existingFilters.length === 0
-            ? iklanList // Include everything if existingFilters is empty
-            : iklanList.filter((iklan) => existingFilters.includes(iklan.jenis));
+    const filteredIklanList = existingFilters.length === 0 ? iklanList.filter((iklan) => iklan.status === "Active") : iklanList.filter((iklan) => existingFilters.includes(iklan.jenis) && iklan.status === "Active");
 
     const categories = ["Akita", "Alaskan Malamute", "American Bully", "American Cocker Spaniel", "American Pit Bull Terrier", "Australian Shepherd", "Basenji", "Beagle", "Belgian Malinois", "Bernese Mountain Dog", "Bichon Frise", "Biewer Terrier", "Border Collie", "Bulldog", "Cane Corso", "Cavalier King Charles Spaniel", "Chihuahua", "Chow Chow", "Dalmatian", "Doberman Pinscher", "Dogo Argentino", "Dutch Shepherd", "English Cocker Spaniel", "French Bulldog", "Golden Retriever", "Great Dane", "Greyhound", "Herder / German Shepherd", "Jack Russell Terrier", "Japanese Chin", "Kintamani", "Labrador Retriever", "Maltese", "Miniature Pinscher", "Miniature Schnauzer", "Mixed Breed / Campuran", "Pekingese", "Pembroke Welsh Corgi", "Pomeranian", "Poodle", "Pug", "Rottweiler", "Samoyed", "Shetland Sheepdog", "Shiba Inu", "Shih Tzu", "Siberian Husky", "Tekel / Dachshund", "West Highland White Terrier", "Yorkshire Terrier"];
     const filteredCategories = categories.filter((category) => category.toLowerCase().includes(filterInput.toLowerCase()));
@@ -120,7 +119,7 @@ export default function Home() {
                 </div>
             </div>
             {showPasang && <PasangIklan togglePasang={togglePasang} />}
-            {showAnjing && <InfoDog iklan={currentIklan} hideAnjing={hideAnjing} />}
+            {showAnjing && currentIklan && <InfoDog iklan={currentIklan} hideAnjing={hideAnjing} />}
         </>
     );
 }

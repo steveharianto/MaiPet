@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../config/firebase";
+import { db, storage } from "../config/firebase";
 import { Iklan, AnjingInfo } from "../pages/Home";
 import { addDoc, collection } from "firebase/firestore";
+import { StorageReference, ref, uploadBytes } from "firebase/storage";
 import { Timestamp } from "firebase/firestore";
+import { v4 as uuidv4 } from "uuid";
 interface PasangProps {
     togglePasang: () => void;
 }
@@ -12,9 +14,10 @@ function PasangIklan({ togglePasang }: PasangProps) {
         kelamin: "",
         warna: "",
     };
+    const uuid = uuidv4();
 
     const initialIklan: Iklan = {
-        id: "",
+        id: uuid,
         judul: "",
         jenis: "",
         kontak: "",
@@ -26,6 +29,8 @@ function PasangIklan({ togglePasang }: PasangProps) {
         rank: "",
         Anjing: [initialAnjingInfo],
         body: "",
+        status: "Pending",
+        gambar: "",
     };
 
     const [iklan, setIklan] = useState(initialIklan);
@@ -90,30 +95,58 @@ function PasangIklan({ togglePasang }: PasangProps) {
             });
         }
     }, []);
-    return (
-        <div className="pasangIklan">
-            <div className="pasangIklan-card">
-                <div className="infoDog-card-1">
-                    <div className="infoDog-backbutton" onClick={togglePasang}>
-                        <p style={{ margin: "0" }}>Kembali</p>
-                    </div>
-                </div>
-                <div style={{ height: "100px", display: "flex" }}>
-                    <div className="progressContainer">
-                        <div className="progressbar">
-                            <div className="percent"></div>
-                        </div>
-                        <div className="steps">
-                            <div className="step" id="0"></div>
-                            <div className="step" id="1"></div>
-                            <div className="step" id="2"></div>
-                            <div className="step" id="3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+
+    // File Upload
+    const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const newFileName = `${iklan.id}.${file.name.split(".").pop()}`;
+            setIklan({ ...iklan, gambar: newFileName });
+
+            const fileRef = ref(storage, newFileName);
+
+            // Upload File
+            if (fileRef) {
+                uploadBytes(fileRef, file).then(() => {
+                    console.log("Uploaded a blob or file!");
+                });
+            }
+        }
+    };
+    // return (
+    //     <div className="pasangIklan">
+    //         <div className="pasangIklan-card">
+    //             <div className="infoDog-card-1">
+    //                 <div className="infoDog-backbutton" onClick={togglePasang}>
+    //                     <p style={{ margin: "0" }}>Kembali</p>
+    //                 </div>
+    //             </div>
+    //             <div style={{ height: "100px", display: "flex" }}>
+    //                 <div className="progressContainer">
+    //                     <div className="progressbar">
+    //                         <div className="percent"></div>
+    //                     </div>
+    //                     <div className="steps">
+    //                         <div className="step" id="0"></div>
+    //                         <div className="step" id="1"></div>
+    //                         <div className="step" id="2"></div>
+    //                         <div className="step" id="3"></div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //             <div style={{ height: "100px", backgroundColor: "red", display: "flex", flexDirection: "column" }}>
+    // <label>
+    //     Judul:
+    //     <input type="text" value={iklan.judul} onChange={(e) => setIklan({ ...iklan, judul: e.target.value })} />
+    // </label>
+    // <label>
+    //     Jenis:
+    //     <input type="text" value={iklan.jenis} onChange={(e) => setIklan({ ...iklan, jenis: e.target.value })} />
+    // </label>
+    //             </div>
+    //         </div>
+    //     </div>
+    // );
 
     return (
         <div className="pasangIklan">
@@ -154,6 +187,10 @@ function PasangIklan({ togglePasang }: PasangProps) {
                 <label>
                     Rank:
                     <input type="text" value={iklan.rank} onChange={(e) => setIklan({ ...iklan, rank: e.target.value })} />
+                </label>
+                <label>
+                    Gambar:
+                    <input type="file" onChange={handleFileUpload} />
                 </label>
                 {/* Input fields for Anjing array */}
                 {iklan.Anjing.map((anjing, index) => (

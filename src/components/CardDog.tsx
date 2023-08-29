@@ -1,4 +1,7 @@
 import { Iklan } from "../pages/Home";
+import { storage } from "../config/firebase";
+import { ref, getDownloadURL } from "firebase/storage";
+import { useEffect, useState } from "react";
 
 interface Props {
     iklan: Iklan;
@@ -7,10 +10,24 @@ interface Props {
 
 export default function CardDog(props: Props) {
     const { iklan } = props;
+    const [imageUrl, setImageUrl] = useState("");
+
+    useEffect(() => {
+        const getImageUrl = async () => {
+            try {
+                const imageRef = ref(storage, iklan.gambar);
+                const url = await getDownloadURL(imageRef);
+                setImageUrl(url);
+            } catch (error) {
+                console.error("Error fetching image URL:", error);
+            }
+        };
+
+        getImageUrl();
+    }, [iklan.gambar]);
     return (
         <div className={`cardDog cardBackground_${iklan.rank}`} onClick={() => props.showAnjing(iklan.id)}>
-            <img src={`dogLogo-${iklan.jenis}.png`} className="img-fluid cardPic" alt="..." style={{ objectFit: "cover", height: "8rem", width: "100%" }}></img>
-
+            <img src={`${imageUrl}`} className="img-fluid cardPic" alt="..." style={{ objectFit: "cover", height: "8rem", width: "100%" }}></img>
             <div className={`cardBody cardBackground_${iklan.rank}`} style={{ padding: "0.6rem" }}>
                 <h6 className="cardDog-title">
                     <b>{iklan.judul}</b>
