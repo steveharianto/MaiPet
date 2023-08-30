@@ -320,3 +320,46 @@
     z-index: 2;
     transition: width 1s;
 }
+
+/* PasangIklan */
+.inputContainer label {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+}
+.inputContainer p {
+    font-weight: bold;
+    margin: 0;
+}
+.inputContainer button {
+    background-color: #00bf8f;
+    box-shadow: 0 4px 6px -1px #00bf8f31, 0 2px 4px -1px #00bf8f17;
+    border: none;
+    border-radius: 0.3em;
+    color: white;
+    font-weight: bold;
+}
+
+/* LocationInput.css */
+.suggestions-container {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 150px; /* Limit the height to create a scrollable popup */
+    overflow-y: auto;
+    z-index: 1000; /* Ensure the popup appears above other elements */
+    width: 15em;
+}
+.suggestions-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.autosuggest-container {
+    width: 80%;
+    height: 2em;
+}
+.autosuggest-input {
+    width: 100%;
+    height: 2em;
+}

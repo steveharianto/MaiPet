@@ -26,7 +26,7 @@ export default function CardDog(props: Props) {
         getImageUrl();
     }, [iklan.gambar]);
     return (
-        <div className={`cardDog cardBackground_${iklan.rank}`} onClick={() => props.showAnjing(iklan.id)}>
+        <div className={`cardDog`} onClick={() => props.showAnjing(iklan.id)}>
             <img src={`${imageUrl}`} className="img-fluid cardPic" alt="..." style={{ objectFit: "cover", height: "8rem", width: "100%" }}></img>
             <div className={`cardBody cardBackground_${iklan.rank}`} style={{ padding: "0.6rem" }}>
                 <h6 className="cardDog-title">
