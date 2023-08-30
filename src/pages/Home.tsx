@@ -80,7 +80,7 @@ export default function Home() {
         <>
             <div className={showPasang || showAnjing ? "blur" : ""}>
                 <Header togglePasang={togglePasang} />
-                <div style={{ backgroundColor: "red", height: "20em", marginBottom: "1em" }}>
+                <div style={{ height: "20em", marginBottom: "1em" }}>
                     <img src="header-pic.jpg" alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }}></img>
                     <p style={{ position: "absolute", top: "25%", left: "25%", transform: "translateX(-50%)", fontFamily: "'Quicksand', sans-serif", fontSize: "3em", lineHeight: "1.2", color: "#fff", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)", padding: "0.5em" }}>
                         Let your paw-some <br />
