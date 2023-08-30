@@ -18,7 +18,7 @@ export default function Login() {
     );
 
     const signInWithGoogle = async () => {
-        const result = await signInWithPopup(auth, provider);
+        await signInWithPopup(auth, provider);
         navigate("/");
     };
     const handleLogin = async () => {
