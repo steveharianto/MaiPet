@@ -16,7 +16,7 @@ export default function Header({ togglePasang }: HeaderProps) {
         <div className="header">
             {/* Logo */}
             <div style={{ width: "20%", display: "flex" }}>
-                <img src="MaiPet-Logo.png" alt="" style={{ marginLeft: "0.5em", height: "100%", marginTop: "auto", marginBottom: "auto" }} />
+                <img src="/MaiPet-Logo.png" alt="" style={{ marginLeft: "0.5em", height: "100%", marginTop: "auto", marginBottom: "auto" }} />
                 <p style={{ fontSize: "2em", fontWeight: "bold", color: "#00bf8f", fontFamily: "'ADLaM Display', cursive", marginTop: "0.2em", marginBottom: "auto" }}>MaiPet</p>
             </div>
             {/* Items */}
